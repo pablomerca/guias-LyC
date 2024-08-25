@@ -1,0 +1,14 @@
+PWD /home/pablo/Desktop/ubaStuff/LyC/guias/guia 1 latex
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT /home/pablo/Desktop/ubaStuff/LyC/guias/guia 1 latex/preamble.tex
+OUTPUT preamble.log
+INPUT /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
+OUTPUT preamble.pdf
+INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
