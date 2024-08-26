@@ -216,12 +216,210 @@ Xlt $f(x_1, ... , x_n) = x_i  + k = s_k(u_i^n(x_1, ... , x_n))$. Y esta ultima a
 $\mathcal{C}$, nos asegura que f tambien esta en $\mathcal{C}$.
 
 
+\qs{}{
+	$\textbf{Ejercicio 4.}\text{Llamamos}\  predicado$ a cualquier función $p:\mathbb{N}^n\to\{0,1\}$, escribimos $p(a_1,\ldots,a_n)$ en lugar de $p(a_1,\ldots,a_n)=1$ y decimos, informalmente, en ese caso, que “$p(a_1,\ldots,a_n)$ es verdadero" Mostrar que los predicados $\leq,\geq,=,\neq,<$y$> : \mathbb{N} ^2\to \{ 0, 1\} \text{ est\' {a}n\ en\ cualquier\ clase\ }PRC.$
+}
+\sol \\
+
+$\begin{aligned}&\bullet\leq(x,y)=\alpha(x-y)\\&\bullet\geq(x,y)=\alpha(y-x)\\&\bullet=(x,y)=(x\leq y).(y\leq x)\\&\bullet\neq(x,y)=\alpha(x=y)\\&\bullet<(x,y)=\alpha(x\geq y)\\&\bullet>(x,y)=\alpha(x\leq y)\end{aligned}$
+
+~
+
+
+Si una funcion f esta en cualquier clase PRC, entonces esta en la interseccion de todas las clases PRC, por el teorema visto en clases, podemos decir que 
+ser funcion primitiva recursiva es condicion necesaria y suficiente para esto.
+En el ejericio 2 vimos que la funcion de multiplicacion, resta de naturales y la suma son primitivas recursivas. Probemos que $\alpha(x)$ es primitiva recursiva.
+
+\[
+\begin{aligned}
+\alpha:N\rightarrow\{0,1\}\\
+\alpha(x)=\begin{cases}
+1 & \text{si } x=0\\
+0 & \text{si } x\neq0
+\end{cases}
+\end{aligned}
+\]
+
+Ahora vamos a definir $\alpha(x)$ por recursion primitiva.\\
+
+$$\begin{aligned}
+	\alpha(0)&=s(n(x))=1\\
+	\alpha(x+1)&=g(\alpha(x-1),x)=0 \ \ \ \ \text{con\ } g(x,y) = n(u_2^2(x,y)) \\
+	\alpha(x+1)&=n(u_{2}^{2}(\alpha(x),x))=0
+\end{aligned}$$\\
+
+Entonces $\alpha(x)$ es primitiva recursiva.
+Las funciones que describimos arriba estan formadas por composicion entre funciones primitivas recursivas, por lo tanto son primitivas recursivas.\\
 
 
 
-\qs{}{}
-\qs{}{}
-\qs{}{}
+
+
+\qs{}{
+	Ejercicio 5. Sea $\mathcal{C}$ una clase $PRC$, sean $f_1,\ldots,f_k,g:\mathbb{N}^n\to\mathbb{N}$ funciones en $\mathcal{C}$ y sean también $p_1,\ldots,p_k:\mathbb{N}^n\to\{0,1\}$ predicados disjuntos en $\mathcal{C}$ (i.e., no sucede $p_i(a_1,\ldots,a_n)=p_j(a_1,\ldots,a_n)=$ 1 con $i\neq j\text{ para ning\' {u}n}( a_1, \ldots , a_n) \in \mathbb{N} ^n) .$ Mostrar que también está en $\mathcal{C} \text{ cualquier funcion} \ h$ que cumpla:
+
+	\begin{align}
+		h(x_1,\dots,x_n)=\left\{\begin{array}{cl}f_1(x_1,\dots,x_n)&\text{si }p_1(x_1,\dots,x_n)\\\vdots\\f_k(x_1,\dots,x_n)&\text{si }p_k(x_1,\dots,x_n)\\g(x_1,\dots,x_n)&\text{si no}\end{array}\right.	
+	\end{align}
+	Observar que $h$ queda completamente determinada por el esquema.
+}
+\sol \\
+$$\begin{aligned}
+h(x_1,...,x_n) = &f_{1}(x_{1},...,x_{n}).p_{1}(x_{1},...,x_{n})+ \\
+&f_2(x_1,...,x_n).p_2(x_1,...,x_n)+ \\
+&f_k(x_1,...,x_n).p_k(x_1,...,x_n)+ \\
+& \vdots \\
+&g(x_1,\ldots,x_n).\alpha(p_1(x_1,\ldots,x_n)+\ldots+p_k(x_1,\ldots,x_n))
+\end{aligned}$$
+\\
+Notemos que $g(x_1,\ldots,x_n).\alpha(p_1(x_1,\ldots,x_n)+\ldots+p_k(x_1,\ldots,x_n))$ toma el valor 1, sii todos los predicados valen 0 a la vez.
+
+Sabemos que toda clase PRC contiene a las funciones inicales. En el ejericio 2, vimos que las funciones $f_1(x,y) = x+y$ y $f_2(x,y) = x.y$ son primitivas recursivas, por teorema, sabemos que esta en cualquier clase PRC.
+Para que h este en $\mathcal{C}$ tiene que poder obtenerse a partir de otras en $\mathcal{C}$ mediante recursion primitiva o composicion.
+
+
+\clm{}{}{
+	$f_i(x_1,...,x_n).p_i(x_1,...,x_n)\in \mathcal{C}$ 
+}
+\begin{myproof}
+	Trivial, ya que $f_2(x,y) = x.y \in \mathcal{C}$ por ser pr.
+\end{myproof}
+
+
+\clm{}{}{
+$a_n(x_1, \ldots, x_n) =x_1+ \ldots+ x_n$ es primitiva recursiva.
+}
+\begin{myproof}
+	Notemos que la funcion $a_n$  puede ser obtenida aplicando la funcion suma ($f_1$) sucesivamente (composicion) de esta manera:
+	$a_n(x_1,\ldots,x_n)=f_1(\ldots(f_1(f_1(x_1,x_2),x_3))\ldots,x_n)$. Entoces $ a_n(x_1,\ldots,x_n)\in \mathcal{C}$. Mas generalmente, culaquier funcion que sume todos sus parametros
+	es primitiva recursiva.
+\end{myproof}
+
+
+\clm{}{}{
+	$g(x_1, \ldots , x_n) = \alpha(p_1(x_1,\ldots,x_n)+\ldots+p_k(x_1,\ldots,x_n)) \in \mathcal{C}$ 
+}
+\begin{myproof}
+	$g(x_1, \ldots , x_n) = \alpha(a_n(p_1(x_1, \ldots , x_n), \ldots, p_n(x_1, \ldots , x_n))) = g'(p_1(x_1, \ldots , x_n), \ldots, p_n(x_1, \ldots , x_n))$
+	\\Con $h'(x_1, \ldots , x_n) = \alpha \circ a_n (x_1, \ldots , x_n)$
+\end{myproof}
+
+\clm{}{}{
+
+$$\begin{aligned}
+h(x_1,...,x_n) = &f_{1}(x_{1},...,x_{n}).p_{1}(x_{1},...,x_{n})+ \\
+&f_2(x_1,...,x_n).p_2(x_1,...,x_n)+ \\
+&f_k(x_1,...,x_n).p_k(x_1,...,x_n)+ \\
+& \vdots \\
+&g(x_1,\ldots,x_n).\alpha(p_1(x_1,\ldots,x_n)+\ldots+p_k(x_1,\ldots,x_n)) \in \mathcal{C}
+\end{aligned}$$
+}
+
+\begin{myproof}
+	Sean: \\ $f_i'(x_1,\ldots,x_n) = f_i(x_1,\ldots,x_n).p_i(x_1,\ldots,x_n) \in \mathcal{C} , \forall i: 1 \ldots k$
+	\\ $g'(x_1,\ldots,x_n) = g(x_1,\ldots,x_n).\alpha(p_1(x_1,\ldots,x_n)+\ldots+p_k(x_1,\ldots,x_n)) \in \mathcal{C}$
+	\\\\ Escribamos a $h$ como composicion de funciones en $\mathcal{C}$ \\
+	$h(x_1,\ldots,x_n) = a_{k+1}(f_1'(x_1,\ldots,x_n), \ldots,f_k'(x_1,\ldots,x_n), g'(x_1,\ldots,x_n))$. \\$\therefore h \in \mathcal{C}$. 
+	
+
+\end{myproof}
+
+
+\qs{}{
+	$\textbf{Ejercicio 6.}$
+	a) Demostrar que el predicado $\text{par}(x)=\begin{cases}1&\text{ si }x\text{ es par}\\0&\text{ si no}\end{cases}$ esta en toda clase PRC.
+	\\
+	b. Demostrar que la función $f( x) = \lfloor x/ 2\rfloor \text{ est\'{a}  en toda clase }PRC.$
+\\\\c. Sea $\mathcal{C}$ una clase $PRC$, y sean $f:\mathbb{N}^n\to\mathbb{N}$ y $g_1,g_2:\mathbb{N}^{n+2}\to\mathbb{N}$ funciones en $\mathcal{C}$. Mostrar que
+también está en $\mathcal{C}$ cualquier $h$ que cumpla:
+$$h(x_1,\dots,x_n,t)=\left\{\begin{array}{ll}f(x_1,\dots,x_n)&\:\textrm{si}\:t=0\\g_1(x_1,\dots,x_n,k,h(x_1,\dots,x_n,t-1))&\:\textrm{si}\:t=2\cdot k+1\\g_2(x_1,\dots,x_n,k,h(x_1,\dots,x_n,t-1))&\:\textrm{si}\:t=2\cdot k+2\end{array}\right.$$
+Observar que $h$ queda completamente determinada por este esquema.
+}
+
+\sol a)
+\mprop{}{
+$\text{par}(x)=\begin{cases}1&\text{ si }x\text{ es par}\\0&\text{ si no}\end{cases}$ esta en toda clase PRC.
+}
+\begin{myproof}
+	Sabemos que estar en toda clase PRC es equivalente a ser funcion primitiva recursiva, veamos que par$(x)$ cumple esto.
+	
+	$$\begin{aligned}
+		&par(0)=1=s(n(x))\\
+		&par(x+1)=\alpha(par(x))=\alpha(u_{1}^{2}(Par(x),x))\\
+		&par(x+1)=g(Par(x),x) \ \ \ \ \text{con} \  g=\alpha\circ u^{2}
+	\end{aligned}$$
+	Ya que pudimos definir a la funcion par por recursion primitiva, entonces par es primitiva recursiva. $\therefore$ par esta en toda clase PRC.
+\end{myproof}
+
+
+\sol b)
+\mprop{}{
+	$f( x) = \lfloor x/ 2\rfloor \text{ est\'{a}  en toda clase }PRC.$
+}
+\begin{myproof}
+	\nt{
+		$$\begin{array}{r|r|r|r|r|r|r|r|r|r|r|r}x&0&1&2&3&4&5&6&7&8&9&10\\\hline\lfloor\frac x2\rfloor&0&0&1&1&2&2&3&3&4&4&5\end{array}$$
+		$$f(x)=\lfloor\frac{x}{2}\rfloor=\begin{cases}0&\mathrm{si~}x=0\\f(x-1)+\underbrace{\alpha(\mathrm{par}(x))}_{\mathrm{impar}(x)}&\mathrm{c.c}\end{cases}$$
+	}
+	$$\begin{aligned}
+	&f(0)=0=n(x) \\
+	&f(x+1)=f(x)+\text{impar}(x) \\
+	&f(x+1)=f_{1}(f(x),\text{impar}(x)) \\
+	&f(x+1)=g(f(x),x) \ \ \ \ \text{con } g(x)=f_{1}(u_{1}^{1}(x),\text{impar}(x))
+	\end{aligned}$$\\Entonces f es primitiva recursiva y por lo tanto esta en toda clase PRC.
+\end{myproof}
+
+
+
+\sol c)
+\mprop{}{
+	$h$ puede ser re-escrito como:
+		$$h(x_1,\dots,x_n,t)=\left\{
+			\begin{array}{ll}
+				f(x_1,\dots,x_n)&\:\textrm{si}\:t=0\\
+				g_1(x_1,\dots,x_n, \lfloor\frac{t-1}2\rfloor,h(x_1,\dots,x_n,t-1))&\:\textrm{si}\:t \text{ es impar}\\
+				g_2(x_1,\dots,x_n,\lfloor\frac{t-1}2\rfloor,h(x_1,\dots,x_n,t-1))&\:\textrm{si}\:t \text{ es par}
+			\end{array}\right.$$
+}
+\begin{myproof}
+    \begin{align*}
+        &\bullet \text{si } t = 2k + 1 \text{ es impar, entonces } \left\lfloor \frac{(2k+1)-1}{2} \right\rfloor = k \\
+        &\bullet \text{si } t = 2k + 2 \text{ es par, entonces } \left\lfloor \frac{(2k+2)-1}{2} \right\rfloor = k \\
+    \end{align*}De esto podemos deducir que $\left\lfloor \frac{t-1}{2} \right\rfloor = k$
+\end{myproof}
+\mprop{}{
+	$h$ puede ser obtenido por recursion primitiva y por lo tanto esta en $\mathcal{C}$:
+		$$h(x_1,\dots,x_n,t)=\left\{
+			\begin{array}{ll}
+				f(x_1,\dots,x_n)&\:\textrm{si}\:t=0\\
+				g(h(x_1,\dots,x_n,t-1),x_1,\dots,x_n,t-1)&\: \text{ c.c}
+			\end{array}\right.$$
+}
+\begin{myproof}
+	Nos gustaria encontar una funcion $g$ $\in \mathcal{C}$, tal que: $$g_i(x_1,\ldots,x_n,\lfloor\frac{t-1}2\rfloor,h(x_1,\ldots,x_n,t-1))=g(h(x_1,\ldots,x_n,t-1),x_1,\ldots,x_n,t-1)$$
+	Esto lo podemos hacer cambiando de lugar los parametros y "desenvolviendo" el parametro t-1, para que quede solo. Definamos la funcion g.
+	$$g(u_{n+2}^{n+2}(x_1,\ldots,x_{n+2}),u_1^{n+2}(x_1,\ldots,x_{n+2}),\ldots,u_{n}^{n+2}(x_1,\ldots,x_{n+2}),e(x_1,\ldots,x_{n+2}))$$Donde:
+	$$\begin{aligned}&d(\mathrm{x})=2.\mathrm{x}+\mathrm{impar}(\mathrm{x})\\&e(x_1,\ldots,x_{n+2})=d(u_{n+1}^{n+2}(x_1,\ldots,x_{n+2}))\end{aligned}$$Se puede probar que $d$ y $e$ son funciones primitivas recursivas, por lo tanto, estan en $\mathcal{C}$.
+	La funcion $d$ es la que "desenvuelve" el parametro t-1 de la funcion $\lfloor\frac{t}2\rfloor$. Entonces $g$ esta correctamente definida por composicion de funciones en $\mathcal{C}$.
+	$\therefore h \in \mathcal{C}$.
+\end{myproof}
+
+
+
+
+\qs{}{
+	$\begin{aligned}&\textbf{Ejercicio 7. Sea C una clase }PRC\text{ y sea }p:\mathbb{N}^{n+1}\to\{0,1\}\text{ un predicado en }\mathcal{C}.\text{ Mostrar que}\\&\text{también están en }\mathcal{C}\text{ las siguientes funciones:}\end{aligned}$
+	$\begin{aligned}
+		\mathrm{cantidad}_p(x_1,\ldots,x_n,y,z)& =|\{t\mid y\leq t\leq z\wedge p(x_1,\ldots,x_n,t)\}| \\
+		\mathrm{todos}_{p}(x_{1},\ldots,x_{n},y,z)& =\left\{\begin{array}{ll}1&\text{ si }(\forall t:y\leq t\leq z)p(x_1,\dots,x_n,t)\\0&\text{ si no}\end{array}\right. \\
+		\mathrm{alguno}_{p}(x_{1},\ldots,x_{n},y,z)& =\left\{\begin{array}{ll}1&\text{ si }(\exists t:y\leq t\leq z)p(x_1,\dots,x_n,t)\\0&\text{ si no}\end{array}\right. \\
+		\mathrm{minimo}_{p}(x_{1},\ldots,x_{n},y,z)& =\begin{cases}\min\{t\mid y\leq t\leq z\land p(x_1,\dots,x_n,t)\}&\text{si existe tal t}\\0&\text{si no}\end{cases} \\
+		\mathrm{maximo}_{p}(x_{1},\ldots,x_{n},y,z)& =\begin{cases}\max\{t\mid y\leq t\leq z\land p(x_1,\dots,x_n,t)\}&\text{si existe tal t}\\0&\text{si no}\end{cases} \\
+		\mathrm{unico}_p(x_1,\ldots,x_n,y,z)& =\left\{\begin{array}{ll}u&\text{si} \{u\}=\{t\mid y\le t\le z\wedge p(x_1,\dots,x_n,t)\}\\z+1&\text{si no}\end{array}\right. 
+	\end{aligned}$
+	\\
+	Observacion: pueden usarse los operadores acotados (min, $\sum$, $\forall$, $\exists$) vistos en la teorica.
+}
 \qs{}{}
 \qs{}{}
 \qs{}{}
