@@ -15,8 +15,8 @@
 \input{macros}
 \input{letterfonts}
 
-\title{\Huge{Some Class}\\Random Examples}
-\author{\huge{Your Name}}
+\title{\Huge{Guia Practica 1}\\LyC 2024 2C}
+\author{\huge{Pablo Mercado}}
 \date{}
 
 \begin{document}
@@ -30,7 +30,9 @@
 
 \chapter{}
 
-\qs{}{
+% Add "pregunta1" to the TOC
+\addcontentsline{toc}{section}{Ejercicio 1}
+\qs{pregunta1}{
 	$\textbf{Ejercicio 1. }$  Mostrar que,  dado un k fijo, la función constante $f(x)=k$ puede defnirse usando
 	las funciones iniciales y composición $(sin$ usar recursión primitiva).
 }
@@ -45,6 +47,7 @@ Razonando de forma inductiva, cada vez que aplicamos $s(x)$ a un cierto $s_{k-1}
 
 
 
+\addcontentsline{toc}{section}{Ejercicio 2}
 \qs{}{
 
 	Ejercicio 2. Probar que las signicntes funciones son primitivas recursivas, mostrando que pueden
@@ -173,6 +176,7 @@ Se puede probar por composicion que $h_1$ y $h_2$ son PR. Por lo tanto queda dem
 	\\\\b. Mostrar que existe una función primitiva recursiva que no está en $\mathcal{C}_c.$
 }
 
+\addcontentsline{toc}{section}{Ejercicio 3}
 \sol a)
 
 ($\rightarrow$)
@@ -219,6 +223,7 @@ $\mathcal{C}$, nos asegura que f tambien esta en $\mathcal{C}$.
 \qs{}{
 	$\textbf{Ejercicio 4.}\text{Llamamos}\  predicado$ a cualquier función $p:\mathbb{N}^n\to\{0,1\}$, escribimos $p(a_1,\ldots,a_n)$ en lugar de $p(a_1,\ldots,a_n)=1$ y decimos, informalmente, en ese caso, que “$p(a_1,\ldots,a_n)$ es verdadero" Mostrar que los predicados $\leq,\geq,=,\neq,<$y$> : \mathbb{N} ^2\to \{ 0, 1\} \text{ est\' {a}n\ en\ cualquier\ clase\ }PRC.$
 }
+\addcontentsline{toc}{section}{Ejercicio 4}
 \sol \\
 
 $\begin{aligned}&\bullet\leq(x,y)=\alpha(x-y)\\&\bullet\geq(x,y)=\alpha(y-x)\\&\bullet=(x,y)=(x\leq y).(y\leq x)\\&\bullet\neq(x,y)=\alpha(x=y)\\&\bullet<(x,y)=\alpha(x\geq y)\\&\bullet>(x,y)=\alpha(x\leq y)\end{aligned}$
@@ -256,6 +261,7 @@ Las funciones que describimos arriba estan formadas por composicion entre funcio
 
 
 \qs{}{
+	\addcontentsline{toc}{section}{Ejercicio 5}
 	Ejercicio 5. Sea $\mathcal{C}$ una clase $PRC$, sean $f_1,\ldots,f_k,g:\mathbb{N}^n\to\mathbb{N}$ funciones en $\mathcal{C}$ y sean también $p_1,\ldots,p_k:\mathbb{N}^n\to\{0,1\}$ predicados disjuntos en $\mathcal{C}$ (i.e., no sucede $p_i(a_1,\ldots,a_n)=p_j(a_1,\ldots,a_n)=$ 1 con $i\neq j\text{ para ning\' {u}n}( a_1, \ldots , a_n) \in \mathbb{N} ^n) .$ Mostrar que también está en $\mathcal{C} \text{ cualquier funcion} \ h$ que cumpla:
 
 	\begin{align}
@@ -335,7 +341,7 @@ también está en $\mathcal{C}$ cualquier $h$ que cumpla:
 $$h(x_1,\dots,x_n,t)=\left\{\begin{array}{ll}f(x_1,\dots,x_n)&\:\textrm{si}\:t=0\\g_1(x_1,\dots,x_n,k,h(x_1,\dots,x_n,t-1))&\:\textrm{si}\:t=2\cdot k+1\\g_2(x_1,\dots,x_n,k,h(x_1,\dots,x_n,t-1))&\:\textrm{si}\:t=2\cdot k+2\end{array}\right.$$
 Observar que $h$ queda completamente determinada por este esquema.
 }
-
+\addcontentsline{toc}{section}{Ejercicio 6}
 \sol a)
 \mprop{}{
 $\text{par}(x)=\begin{cases}1&\text{ si }x\text{ es par}\\0&\text{ si no}\end{cases}$ esta en toda clase PRC.
