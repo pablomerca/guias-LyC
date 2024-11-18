@@ -15,6 +15,7 @@ Dado que $\varphi \in \Delta'$, vale $\Delta' \vdash \varphi$. Pero $\mathcal{C}
 Por lo tanto $\Delta'$ no es correcto con respecto a la clase $\mathcal{C}$.
 
 
+
 ## b)  
 
 Supongamos que es cierto, que si es completo:  

@@ -9,7 +9,7 @@ Es lo mismo que decir:
 
 Probemos esto ultimo:
 
-Sabemos que $\mathcal{M} \vDash \varphi \ $ si $\mathcal{M} \vDash \varphi [v]\ $ para toda valuacion $v$.
+Sabemos que $\mathcal{M} \vDash \varphi \ $ si $\mathcal{M} \vDash \varphi [v]\ $ para toda valuacion $v$
 
 Sean $v$ y $\mathcal{M} \in \mathcal{C}$ una valuacion y un modelo cualesquiera, supongamos que
 $\mathcal{M} \vDash \alpha \rarr \beta [v]\ $, por la definicion de valuacion, esto pasa sii  $\mathcal{M} \nvDash \alpha[v]\ $ o $\ \mathcal{M} \vDash \beta [v]\ $.
